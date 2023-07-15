@@ -35,7 +35,7 @@ If you want you can contact me or you can open a pull request for some cool feat
 1. Install Java 11 or higher
 2. Install the lastest release of FadedMusicBot from the releases page
 3. Put the FadedMusicBot-X.X.X.jar in a folder
-4. Install the start file for your system.
+4. Install the start file for your OS.
    - Use the start.`bat` for windows
    - Use the start.`sh` for ubuntu.
      - If you are using ubuntu you will have to install `screen` using `sudo apt-get install screen`
