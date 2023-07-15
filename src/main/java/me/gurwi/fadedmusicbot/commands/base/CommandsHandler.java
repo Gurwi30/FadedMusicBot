@@ -1,23 +1,30 @@
 package me.gurwi.fadedmusicbot.commands.base;
 
-import me.gurwi.fadedmusicbot.commands.CockCommand;
+import me.gurwi.fadedmusicbot.commands.LoopCommand;
+import me.gurwi.fadedmusicbot.commands.PingCommand;
 import me.gurwi.fadedmusicbot.commands.PlayCommand;
+import me.gurwi.fadedmusicbot.commands.StopCommand;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 
 import java.util.*;
 
-public class CMDHandler {
+public class CommandsHandler extends ListenerAdapter {
 
     private final Map<String, BotCommand> commandMap = new HashMap<>();
     private final JDA jda;
 
-    public CMDHandler(JDA jda) {
+    public CommandsHandler(JDA jda) {
         this.jda = jda;
+        jda.addEventListener(this);
 
         register(new PlayCommand());
-        register(new CockCommand());
+        register(new StopCommand());
+        register(new LoopCommand());
+        register(new PingCommand());
 
         registerSlashCommands();
     }
@@ -46,6 +53,15 @@ public class CMDHandler {
         });
 
         jda.updateCommands().addCommands(slashCommands).queue();
+    }
+
+    @Override
+    public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
+
+        String command = event.getName().toLowerCase();
+        if (!commandMap.containsKey(command)) return;
+        commandMap.get(command).execute(event);
+
     }
 
 }

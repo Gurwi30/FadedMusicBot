@@ -6,13 +6,13 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 @Getter
 @RequiredArgsConstructor
-public abstract class ICommand {
+public abstract class BotCommand {
 
     private final String name;
     private final String description;
     private CMDOption[] cmdOptions;
 
-    public ICommand(String name, String description, CMDOption... cmdOptions) {
+    public BotCommand(String name, String description, CMDOption... cmdOptions) {
         this.name = name;
         this.description = description;
         this.cmdOptions = cmdOptions;
