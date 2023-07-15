@@ -38,8 +38,8 @@ If you want you can contact me or you can open a pull request for some cool feat
 4. Install the start file for your system.
    - Use the start.`bat` for windows
    - Use the start.`sh` for ubuntu
-     > If you are using ubuntu you will have to install `screen`
-     > using `sudo apt-get install screen`
+     ! If you are using ubuntu you will have to install `screen`
+     ! using `sudo apt-get install screen`
 5. Execute the start file, and configure the bot token in the `config.yml` file
 6. Enjoy :)
    
