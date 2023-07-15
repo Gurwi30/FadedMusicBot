@@ -42,7 +42,7 @@ If you want you can contact me or you can open a pull request for some cool feat
 5. Execute the start file, and configure the bot token in the `config.yml` file
 6. Enjoy :)
 
-### COMMANDS
+## Commands
 - `/play [Track]` Plays a track from a link or title
 - `/stop` Stops the current track
 - `/loop [Current/Playlist]` Loops the current track or the current playlist/queue
