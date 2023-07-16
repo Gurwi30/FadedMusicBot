@@ -64,7 +64,6 @@ public class AudioPlayer {
         String trackToLoad;
 
         URLSource urlSource = BasicFunctions.getUrlSource(trackUrl);
-        System.out.println(urlSource.name());
 
         if (urlSource != URLSource.NOT_URL) {
             trackToLoad = trackUrl;
