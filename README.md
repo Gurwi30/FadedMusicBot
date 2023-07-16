@@ -15,9 +15,10 @@ If you want you can contact me or you can open a pull request for some cool feat
 
 ## Supported Sources
 - [x] YouTube
-- [ ] SoundCloud
+- [x] SoundCloud
+- [x] Twitch streams
+- [x] HTTP URLs
 - [ ] Spotify
-- [ ] Twitch streams
 
 ## Setup
 
@@ -42,9 +43,14 @@ If you want you can contact me or you can open a pull request for some cool feat
 5. Execute the start file, and configure the bot token in the `config.yml` file
 6. Enjoy :)
 
-## Commands
+## Discord Commands
 - `/play [Track]` Plays a track from a link or title
 - `/stop` Stops the current track
 - `/loop [Current/Playlist]` Loops the current track or the current playlist/queue
 - `/ping` Shows the bot current ping
-   
+
+## Cosole Commands
+- `help` Shows the list of all the available commands
+- `reload` Reloads the bot configuration and restarts it
+- `stop` Stops the bot
+- `guilds` Get the list of all the guilds with the bot in it
