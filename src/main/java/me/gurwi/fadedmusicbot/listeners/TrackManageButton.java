@@ -3,7 +3,6 @@ package me.gurwi.fadedmusicbot.listeners;
 import me.gurwi.fadedmusicbot.commands.StopCommand;
 import me.gurwi.fadedmusicbot.lavaplayer.AudioPlayer;
 import me.gurwi.fadedmusicbot.utils.CustomButton;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.LayoutComponent;
@@ -21,11 +20,8 @@ public class TrackManageButton extends ListenerAdapter {
         Button button = event.getButton();
         Optional<CustomButton> buttonId = CustomButton.matchButton(button);
         AudioPlayer audioPlayer = AudioPlayer.getInstance();
-        Guild guild = event.getGuild();
 
         if (buttonId.isEmpty()) return;
-
-        System.out.println(buttonId.get().name());
 
         switch (buttonId.get()) {
 

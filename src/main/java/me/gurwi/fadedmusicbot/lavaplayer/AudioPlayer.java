@@ -12,6 +12,7 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import lombok.Getter;
 import me.gurwi.fadedmusicbot.FadedMusicBot;
 import me.gurwi.fadedmusicbot.cache.QueueManager;
+import me.gurwi.fadedmusicbot.enums.URLSource;
 import me.gurwi.fadedmusicbot.utils.BasicFunctions;
 import me.gurwi.fadedmusicbot.utils.EmbedUtils;
 import me.gurwi.fadedmusicbot.utils.TrackUtils;
@@ -62,7 +63,10 @@ public class AudioPlayer {
         GuildMusicManager musicManager = getMusicManager(guild);
         String trackToLoad;
 
-        if (BasicFunctions.isYoutubeUrl(trackUrl)) {
+        URLSource urlSource = BasicFunctions.getUrlSource(trackUrl);
+        System.out.println(urlSource.name());
+
+        if (urlSource != URLSource.NOT_URL) {
             trackToLoad = trackUrl;
         } else {
             trackToLoad = "ytsearch:" + trackUrl;
@@ -101,6 +105,7 @@ public class AudioPlayer {
                     long SS = seconds % 60;
 
                     String timeInHHMMSS = String.format("%02d:%02d:%02d", HH, MM, SS);
+                    if (track.getInfo().isStream) timeInHHMMSS = "Live";
 
                     MessageEmbed.Field trackNameField = new MessageEmbed.Field("**🎵 Now playing **", "`" + track.getInfo().title + "`", false);
                     MessageEmbed.Field trackDurationField = new MessageEmbed.Field("**ℹ️ Other Info**", "``` Duration: " + timeInHHMMSS + "\n" +
@@ -145,12 +150,16 @@ public class AudioPlayer {
 
             @Override
             public void noMatches() {
-                System.out.println("No Matches");
+                event.replyEmbeds( EmbedUtils.getErrorEmbed("❌ **No track found**").build()).setEphemeral(true).queue();
             }
 
             @Override
             public void loadFailed(FriendlyException exception) {
-                System.out.println("error");
+
+                String error = exception.getMessage() + " Caused by " + exception.getCause();
+
+                if (exception.getMessage().equalsIgnoreCase("Unknown file format.")) error = "Unsupported Source.";
+                event.replyEmbeds(EmbedUtils.getErrorEmbed("❗ **An error occurred:** `" + error + "`").build()).setEphemeral(true).queue();
             }
 
         });

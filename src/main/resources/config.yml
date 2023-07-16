@@ -1,0 +1,13 @@
+#
+# FadedMusicBot v1.0.0
+# by @Gurwi30 (github.com/Gurwi30)
+#
+
+Bot-Token: "" # IF YOU DON'T KNOW HOW TO GET IT CHECK OUT THE BOT GITHUB BOT SETUP SECTION
+Bot-Owner-Id: ""
+
+Bot-Status: IDLE # AVAILABLE STATUS (ONLINE, IDLE, DO_NOT_DISTURB, INVISIBLE, OFFLINE)
+Bot-Activity:
+  activity: STREAMING # AVAILABLE ACTIVITY (PLAYING, STREAMING, LISTENING, COMPETING)
+  name: "Goofy aah songs"
+  url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
