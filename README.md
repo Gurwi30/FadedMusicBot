@@ -32,7 +32,7 @@ If you want you can contact me or you can open a pull request for some cool feat
 
 ### Installing FadedMusicBot
 
-1. Install Java 11 or higher
+1. Install Java 17 or higher
 2. Install the lastest release of FadedMusicBot from the releases page
 3. Put the FadedMusicBot-X.X.X.jar in a folder
 4. Install the start file for your OS.
