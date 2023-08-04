@@ -11,6 +11,7 @@ import me.gurwi.fadedmusicbot.utils.ConsoleColors;
 import me.gurwi.fadedmusicbot.utils.Logger;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.JDAInfo;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.exceptions.InvalidTokenException;
@@ -51,7 +52,7 @@ public class FadedMusicBot {
         logger.info(ConsoleColors.CYAN + "Starting discord bot..." + ConsoleColors.RESET);
         startBot();
 
-        logger.info(ConsoleColors.CYAN + "BOT STARTED SUCCESSFULLY" + ConsoleColors.RESET);
+        logger.info(ConsoleColors.CYAN + "BOT STARTED SUCCESSFULLY (v" + JDAInfo.VERSION + ")" + ConsoleColors.RESET);
 
         // USER INPUT
 

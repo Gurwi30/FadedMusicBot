@@ -4,7 +4,6 @@ import me.gurwi.fadedmusicbot.clicommands.BotStopCommand;
 import me.gurwi.fadedmusicbot.clicommands.CLIHelpCommand;
 import me.gurwi.fadedmusicbot.clicommands.GetGuildsCommand;
 import me.gurwi.fadedmusicbot.clicommands.ReloadConfigCommand;
-import me.gurwi.fadedmusicbot.clicommands.base.CLICommand;
 import me.gurwi.fadedmusicbot.utils.ConsoleColors;
 import me.gurwi.fadedmusicbot.utils.Logger;
 

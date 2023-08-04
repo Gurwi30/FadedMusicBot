@@ -71,14 +71,13 @@ public class AudioPlayer {
             trackToLoad = "ytsearch:" + trackUrl;
         }
 
+        AudioManager audioManager = guild.getAudioManager();
         Member member = event.getMember();
-
         EmbedBuilder embedBuilder = new EmbedBuilder();
 
         audioPlayerManager.loadItemOrdered(musicManager, trackToLoad, new AudioLoadResultHandler() {
             @Override
             public void trackLoaded(AudioTrack track) {
-                AudioManager audioManager = guild.getAudioManager();
 
                 if (delayAudioConnection) {
                     FadedMusicBot.getScheduler().schedule(() -> audioManager.openAudioConnection(voiceChannel), 1, TimeUnit.SECONDS);
@@ -142,6 +141,15 @@ public class AudioPlayer {
 
                     event.replyEmbeds(embedBuilder.build()).setActionRow(TrackUtils.createPlaylistTrackSelector(playlist).build()).setEphemeral(true).queue();
                     return;
+                }
+
+                embedBuilder.setDescription("`➕ " + playlist.getName() + " added to the queue`");
+                event.replyEmbeds(embedBuilder.build()).queue();
+
+                if (delayAudioConnection) {
+                    FadedMusicBot.getScheduler().schedule(() -> audioManager.openAudioConnection(voiceChannel), 1, TimeUnit.SECONDS);
+                } else {
+                    audioManager.openAudioConnection(voiceChannel);
                 }
 
                 playlist.getTracks().forEach(playlistTrack -> musicManager.getScheduler().queue(playlistTrack));
