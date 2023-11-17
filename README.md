@@ -1,7 +1,7 @@
 # FadedMusicBot
 A simple discord music bot made because i was bored.
 
-This bot is missing some feature like SoundCloud support or other platforms support for now but, don't worry i will add them in the future.
+This bot is missing some feature like Spotify support or other platforms support for now but, don't worry i will add them in the future.
 If you want you can contact me or you can open a pull request for some cool feature, i will be more than happy to implement it :)
 
 ## Features
